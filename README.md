@@ -1,5 +1,7 @@
 # Forced-alignment validity in Japanese and Korean spontaneous speech
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22806127.svg)](https://doi.org/10.5281/zenodo.22806127)
+
 Code, configurations, phone-correspondence tables, and aggregate results supporting the article:
 
 **Accurate boundaries do not validate variant selection: two axes of forced-alignment validity in Japanese and Korean spontaneous speech**
@@ -37,4 +39,4 @@ Code is licensed under the MIT License ('LICENSES/MIT.txt'). Documentation, figu
 
 ## Citation
 
-Please cite the archived release DOI shown in the GitHub release and 'CITATION.cff'. The repository URL is https://github.com/labphonlab/forced-alignment-validity-ja-ko.
+Please cite the archived version supporting the article as Ishihara (2026), *Forced-alignment validity in Japanese and Korean spontaneous speech: code and aggregate results*, version 1.0.0, Zenodo, https://doi.org/10.5281/zenodo.22806127. The development repository is https://github.com/labphonlab/forced-alignment-validity-ja-ko.
