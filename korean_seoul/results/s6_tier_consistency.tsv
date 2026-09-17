@@ -1,0 +1,4 @@
+group	n	phoneme_equals_prono	phoneme_equals_ortho	phoneme_equals_prono_vowelnorm	top_substitutions_prono_to_phoneme	prono_equals_ortho	same_length_phoneme_prono	raw_mismatches_by_process_before_vowelnorm
+all_candidates	69542	0.8349	0.2296	0.9998		0.2705	0.9998	aspiration=716;liaison=7150;liquidization=229;nasalization_liquid=59;nasalization_obstruent=715;tensification=2612
+distinct_word_tokens	62331	0.8348	0.2461	0.9998		0.2906	0.9998	aspiration=652;liaison=6432;liquidization=228;nasalization_liquid=59;nasalization_obstruent=582;tensification=2345
+natural_sample_candidates	8905	0.8292	0.0882	0.9999		0.1043	0.9999	aspiration=277;liaison=336;liquidization=229;nasalization_liquid=59;nasalization_obstruent=279;tensification=341

@@ -1,0 +1,13 @@
+subset	measure	model	n	speakers	word_types	reference	logLik	AIC	sd_speaker	sd_word_type	LRT_interaction_chisq	LRT_df	LRT_p	convergence
+identity_safe	dev_site_ms	main	2563	40	1258	tensification	-1433.55	2879.09	0.164	2.087	NA	NA	NA	ok
+identity_safe	dev_site_ms	interaction	2563	40	1258	tensification	-1432.14	2880.28	0.173	2.074	2.816	2	0.245	ok
+identity_safe	dev_site_ms	nested_slopes	2563	40	1258	tensification	-1432.14	2880.28	0.173	2.074	NA	NA	NA	ok
+identity_safe	dev_word_ms	main	2635	40	1277	tensification	-1465.36	2942.72	0.179	2.1	NA	NA	NA	ok
+identity_safe	dev_word_ms	interaction	2635	40	1277	tensification	-1464.51	2945.03	0.178	2.097	1.697	2	0.428	ok
+identity_safe	dev_word_ms	nested_slopes	2635	40	1277	tensification	-1464.51	2945.03	0.178	2.097	NA	NA	NA	ok
+full	dev_site_ms	main	5414	40	2404	tensification	-3040.79	6099.58	0.193	1.705	NA	NA	NA	ok
+full	dev_site_ms	interaction	5414	40	2404	tensification	-3032.53	6093.06	0.197	1.72	16.525	5	0.0055	ok
+full	dev_site_ms	nested_slopes	5414	40	2404	tensification	-3032.53	6093.06	0.197	1.72	NA	NA	NA	ok
+full	dev_word_ms	main	5538	40	2440	tensification	-3104.63	6227.27	0.188	1.724	NA	NA	NA	ok
+full	dev_word_ms	interaction	5538	40	2440	tensification	-3103.1	6234.2	0.187	1.728	3.062	5	0.69	ok
+full	dev_word_ms	nested_slopes	5538	40	2440	tensification	-3103.1	6234.2	0.187	1.728	NA	NA	NA	ok

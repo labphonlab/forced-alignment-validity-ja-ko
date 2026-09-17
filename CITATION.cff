@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or its aggregate results, please cite the archived release."
+title: "Forced-alignment validity in Japanese and Korean spontaneous speech: code and aggregate results"
+type: software
+version: 1.0.0
+date-released: 2026-09-17
+authors:
+  - family-names: Ishihara
+    given-names: Takeshi
+    affiliation: Mejiro University
+repository-code: "https://github.com/labphonlab/forced-alignment-validity-ja-ko"
+license: MIT
+keywords:
+  - forced alignment
+  - Montreal Forced Aligner
+  - Japanese phonetics
+  - Korean phonology
+  - corpus phonetics
+  - pronunciation variants

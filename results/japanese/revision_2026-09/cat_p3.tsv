@@ -1,0 +1,22 @@
+analysis	subset	quantity	estimate	ci2way_low	ci2way_high	cispk_low	cispk_high	n	note
+P3	token_set	n_competing_in_B1_and_present_in_all	13567.00000						B1_status_not_competing=0;B1_prior_rerun_status_not_competing=1
+P3	B1	agreement	0.78249			0.76095	0.80441	13567.00000	speakers=27
+P3	B1	sensitivity	0.77881			0.75108	0.80733	13567.00000	speakers=27
+P3	B1	specificity	0.78795			0.75544	0.81601	13567.00000	speakers=27
+P3	B1	balanced_accuracy	0.78338			0.76184	0.80485	13567.00000	speakers=27
+P3	B1	mcc	0.55876			0.51561	0.60263	13567.00000	speakers=27
+P3	B1_prior_rerun	agreement	0.78286			0.76105	0.80436	13567.00000	speakers=27
+P3	B1_prior_rerun	sensitivity	0.77967			0.75177	0.80819	13567.00000	speakers=27
+P3	B1_prior_rerun	specificity	0.78758			0.75506	0.81568	13567.00000	speakers=27
+P3	B1_prior_rerun	balanced_accuracy	0.78363			0.76202	0.80487	13567.00000	speakers=27
+P3	B1_prior_rerun	mcc	0.55933			0.51564	0.60334	13567.00000	speakers=27
+P3	B1_prior_rerun-minus-B1	share_decisions_changed	0.00140					13567.00000	n_changed=19
+P3	B1_prior_rerun-minus-B1	delta_agreement	0.00037			-0.00030	0.00102	13567.00000	
+P3	B1_prior_rerun-minus-B1	delta_balanced_accuracy	0.00025			-0.00036	0.00084	13567.00000	
+P3	B1_prior_rerun-minus-B1	delta_sensitivity	0.00086			-0.00016	0.00190	13567.00000	
+P3	B1_prior_rerun-minus-B1	delta_specificity	-0.00037			-0.00094	0.00000	13567.00000	
+P3	B1_prior_rerun-minus-B1	delta_mcc	0.00057			-0.00066	0.00178	13567.00000	
+P3	B1_prior_rerun-minus-B1	delta_agreement_minus_delta_BA	0.00012			0.00001	0.00021	13567.00000	
+P3	B1_prior_rerun-minus-B1	share_decisions_changed|type=symbol	0.00000					535.00000	
+P3	B1_prior_rerun-minus-B1	share_decisions_changed|type=presence	0.00079					5089.00000	
+P3	B1_prior_rerun-minus-B1	share_decisions_changed|type=mixed	0.00189					7943.00000	

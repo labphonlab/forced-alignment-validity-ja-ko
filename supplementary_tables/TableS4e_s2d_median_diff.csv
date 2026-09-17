@@ -1,0 +1,5 @@
+subset,measure,n,median_correct,median_wrong,diff,spk_lo,spk_hi,twoway_lo,twoway_hi
+identity_safe,dev_site_ms,2564,9.44,10.0,0.56,0.016,1.394,-0.332,2.198
+identity_safe,dev_word_ms,2636,8.613,8.928,0.315,-0.284,0.816,-0.819,1.164
+full,dev_site_ms,5414,10.094,10.0,-0.094,-0.415,0.387,-1.08,0.727
+full,dev_word_ms,5538,9.004,8.998,-0.006,-0.353,0.433,-0.702,0.746

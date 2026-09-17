@@ -1,0 +1,17 @@
+quantity	manuscript	recomputed	match
+candidates	5,716	5,716	OK
+speakers	40	40	OK
+agreement	57.5%	57.5%	OK
+baseline	97.2%	97.2%	OK
+balanced_accuracy	50.7%	50.7%	OK
+MCC	0.005	0.005	OK
+negatives	161	161	OK
+under:over	2,338:91	2,338:91	OK
+joint_n	5,538	5,538	OK
+word_median_correct_vs_wrong	9.00 vs 9.00	9.00 vs 9.00	OK
+word_diff_CI	-0.01 [-0.36, +0.45]	-0.01 [-0.36, +0.45]	OK
+identity_safe_candidates	2,645	2,645	OK
+safe_site_median_correct_vs_wrong	9.44 vs 10.00	9.44 vs 10.00	OK
+safe_site_diff_CI	+0.56 [+0.02, +1.42]	+0.56 [+0.02, +1.42]	OK
+AUC_full_word	0.498 [0.483, 0.515]	0.498 [0.483, 0.515]	OK
+AUC_safe_site	0.532 [0.508, 0.559]	0.532 [0.508, 0.559]	OK

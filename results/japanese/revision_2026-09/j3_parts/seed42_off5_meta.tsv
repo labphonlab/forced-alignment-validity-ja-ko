@@ -1,0 +1,2 @@
+seed	offset	n_rows	n_full	converged	singular	minutes	var_speaker	var_file	var_phone	var_resid	wald_int_chisq	wald_int_df	b_onset_ref	b_rate
+42	5	439218	2472980	ok	FALSE	0.7	0.00100870536355245	0.000381937807222822	0.105460426388215	0.346314637336007	27036.3370261794	18	0.0541530592963608	-0.0144339350144334

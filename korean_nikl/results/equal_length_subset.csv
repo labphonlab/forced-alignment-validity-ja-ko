@@ -1,0 +1,5 @@
+process,detection_rate,ci_low,ci_high,p_vs_chance,n_total_subset
+tensification,0.533,0.475,0.590,0.28,884
+vowel raising,0.535,0.481,0.589,0.21,884
+vowel change (non-raising),0.788,0.703,0.858,,884
+coda insertion,0.759,0.670,0.833,,884

@@ -1,0 +1,16 @@
+model	grp	var1	var2	vcov	sdcor
+diff_spk_file_vowel	file_id	(Intercept)		0.000258160986661213	0.0160673889185895
+diff_spk_file_vowel	speaker_id	(Intercept)		0.000654316277320932	0.0255796066686126
+diff_spk_file_vowel	vowel	(Intercept)		0.00535337845418551	0.0731667851841634
+diff_spk_file_vowel	Residual			0.0875088297636314	0.295818913803076
+diff_plus_word	word	(Intercept)		3.98321994015541e-05	0.00631127557642305
+diff_plus_word	file_id	(Intercept)		0.000258108984681684	0.0160657705909702
+diff_plus_word	speaker_id	(Intercept)		0.000654303994607433	0.0255793665794803
+diff_plus_word	vowel	(Intercept)		0.00535349659984862	0.0731675925519531
+diff_plus_word	Residual			0.0874683480258228	0.295750482714437
+diff_nuc_slope_speaker	file_id	(Intercept)		0.000256272145828567	0.0160085022981092
+diff_nuc_slope_speaker	speaker_id	(Intercept)		0.000686740698281139	0.0262057378885071
+diff_nuc_slope_speaker	speaker_id	is_nuc		0.000292019187623528	0.0170885689167797
+diff_nuc_slope_speaker	speaker_id	(Intercept)	is_nuc	-0.000114264707251511	-0.255158490486687
+diff_nuc_slope_speaker	vowel	(Intercept)		0.00536072075328314	0.0732169430752414
+diff_nuc_slope_speaker	Residual			0.0874697609472591	0.295752871409999

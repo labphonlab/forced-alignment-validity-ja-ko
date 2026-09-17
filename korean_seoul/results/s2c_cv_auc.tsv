@@ -1,0 +1,57 @@
+subset	measure	n	processes	model	cv	auc	spk_lo	spk_hi
+identity_safe	dev_site_ms	2563		process	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.651		
+identity_safe	dev_site_ms	2563		process	10-fold speaker-grouped (seeded), pooled OOF	0.6268		
+identity_safe	dev_site_ms	2563		boundary	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.5309		
+identity_safe	dev_site_ms	2563		boundary	10-fold speaker-grouped (seeded), pooled OOF	0.5258		
+identity_safe	dev_site_ms	2563		process+boundary	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.668		
+identity_safe	dev_site_ms	2563		process+boundary	10-fold speaker-grouped (seeded), pooled OOF	0.6606		
+identity_safe	dev_site_ms	2563		process*boundary	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.664		
+identity_safe	dev_site_ms	2563		process*boundary	10-fold speaker-grouped (seeded), pooled OOF	0.6537		
+identity_safe	dev_site_ms	2563		increment: (process+boundary) - process	LOSO, mean within-held-out-speaker AUC	0.017	0.0063	0.0282
+identity_safe	dev_site_ms	2563	aspiration+liaison+tensification	process	leave-one-speaker-out (40 folds), pooled OOF	0.6006	0.5722	0.6328
+identity_safe	dev_site_ms	2563	aspiration+liaison+tensification	boundary	leave-one-speaker-out (40 folds), pooled OOF	0.5234	0.4982	0.5487
+identity_safe	dev_site_ms	2563	aspiration+liaison+tensification	process+boundary	leave-one-speaker-out (40 folds), pooled OOF	0.6599	0.6301	0.6889
+identity_safe	dev_site_ms	2563	aspiration+liaison+tensification	process*boundary	leave-one-speaker-out (40 folds), pooled OOF	0.6461	0.6164	0.676
+identity_safe	dev_site_ms	2563		increment: (process+boundary) - process	same	0.0593	0.0467	0.0707
+identity_safe	dev_word_ms	2635		process	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.6527		
+identity_safe	dev_word_ms	2635		process	10-fold speaker-grouped (seeded), pooled OOF	0.6286		
+identity_safe	dev_word_ms	2635		boundary	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.4626		
+identity_safe	dev_word_ms	2635		boundary	10-fold speaker-grouped (seeded), pooled OOF	0.4689		
+identity_safe	dev_word_ms	2635		process+boundary	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.6607		
+identity_safe	dev_word_ms	2635		process+boundary	10-fold speaker-grouped (seeded), pooled OOF	0.6475		
+identity_safe	dev_word_ms	2635		process*boundary	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.6656		
+identity_safe	dev_word_ms	2635		process*boundary	10-fold speaker-grouped (seeded), pooled OOF	0.6506		
+identity_safe	dev_word_ms	2635		increment: (process+boundary) - process	LOSO, mean within-held-out-speaker AUC	0.008	-0.0009	0.0176
+identity_safe	dev_word_ms	2635	aspiration+liaison+tensification	process	leave-one-speaker-out (40 folds), pooled OOF	0.6003	0.5739	0.6313
+identity_safe	dev_word_ms	2635	aspiration+liaison+tensification	boundary	leave-one-speaker-out (40 folds), pooled OOF	0.4142	0.4003	0.4288
+identity_safe	dev_word_ms	2635	aspiration+liaison+tensification	process+boundary	leave-one-speaker-out (40 folds), pooled OOF	0.6456	0.6158	0.6754
+identity_safe	dev_word_ms	2635	aspiration+liaison+tensification	process*boundary	leave-one-speaker-out (40 folds), pooled OOF	0.6455	0.6166	0.6743
+identity_safe	dev_word_ms	2635		increment: (process+boundary) - process	same	0.0452	0.0361	0.054
+full	dev_site_ms	5414		process	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.6752		
+full	dev_site_ms	5414		process	10-fold speaker-grouped (seeded), pooled OOF	0.6618		
+full	dev_site_ms	5414		boundary	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.5035		
+full	dev_site_ms	5414		boundary	10-fold speaker-grouped (seeded), pooled OOF	0.4757		
+full	dev_site_ms	5414		process+boundary	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.6811		
+full	dev_site_ms	5414		process+boundary	10-fold speaker-grouped (seeded), pooled OOF	0.6736		
+full	dev_site_ms	5414		process*boundary	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.6808		
+full	dev_site_ms	5414		process*boundary	10-fold speaker-grouped (seeded), pooled OOF	0.6722		
+full	dev_site_ms	5414		increment: (process+boundary) - process	LOSO, mean within-held-out-speaker AUC	0.0059	0.0019	0.0104
+full	dev_site_ms	5414	aspiration+liaison+liquidization+nasalization_liquid+nasalization_obstruent+tensification	process	leave-one-speaker-out (40 folds), pooled OOF	0.6484	0.6292	0.6663
+full	dev_site_ms	5414	aspiration+liaison+liquidization+nasalization_liquid+nasalization_obstruent+tensification	boundary	leave-one-speaker-out (40 folds), pooled OOF	0.4621	0.4476	0.4782
+full	dev_site_ms	5414	aspiration+liaison+liquidization+nasalization_liquid+nasalization_obstruent+tensification	process+boundary	leave-one-speaker-out (40 folds), pooled OOF	0.673	0.6539	0.6903
+full	dev_site_ms	5414	aspiration+liaison+liquidization+nasalization_liquid+nasalization_obstruent+tensification	process*boundary	leave-one-speaker-out (40 folds), pooled OOF	0.6714	0.6532	0.6882
+full	dev_site_ms	5414		increment: (process+boundary) - process	same	0.0246	0.0204	0.0284
+full	dev_word_ms	5538		process	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.6729		
+full	dev_word_ms	5538		process	10-fold speaker-grouped (seeded), pooled OOF	0.6604		
+full	dev_word_ms	5538		boundary	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.4855		
+full	dev_word_ms	5538		boundary	10-fold speaker-grouped (seeded), pooled OOF	0.4646		
+full	dev_word_ms	5538		process+boundary	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.6761		
+full	dev_word_ms	5538		process+boundary	10-fold speaker-grouped (seeded), pooled OOF	0.6663		
+full	dev_word_ms	5538		process*boundary	LOSO, mean within-held-out-speaker AUC (40 speakers)	0.6716		
+full	dev_word_ms	5538		process*boundary	10-fold speaker-grouped (seeded), pooled OOF	0.6652		
+full	dev_word_ms	5538		increment: (process+boundary) - process	LOSO, mean within-held-out-speaker AUC	0.0033	0.0003	0.0068
+full	dev_word_ms	5538	aspiration+liaison+liquidization+nasalization_liquid+nasalization_obstruent+tensification	process	leave-one-speaker-out (40 folds), pooled OOF	0.6467	0.6284	0.6643
+full	dev_word_ms	5538	aspiration+liaison+liquidization+nasalization_liquid+nasalization_obstruent+tensification	boundary	leave-one-speaker-out (40 folds), pooled OOF	0.4382	0.4251	0.4535
+full	dev_word_ms	5538	aspiration+liaison+liquidization+nasalization_liquid+nasalization_obstruent+tensification	process+boundary	leave-one-speaker-out (40 folds), pooled OOF	0.6646	0.6456	0.6819
+full	dev_word_ms	5538	aspiration+liaison+liquidization+nasalization_liquid+nasalization_obstruent+tensification	process*boundary	leave-one-speaker-out (40 folds), pooled OOF	0.6613	0.6421	0.679
+full	dev_word_ms	5538		increment: (process+boundary) - process	same	0.018	0.0148	0.0211

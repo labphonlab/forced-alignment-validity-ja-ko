@@ -1,0 +1,27 @@
+# Python依存の固定。バージョンの根拠と経緯は docs/versions.md を参照。
+#
+# 【重要】MFA本体は pip ではなく conda-forge で導入する。
+#   conda env create -f environment.yml
+#   conda activate mfa
+# MFAは kaldi / openfst / pynini 等のネイティブ依存を持ち、pip単独では再現できない。
+# 本ファイルは、そのconda環境に pip で追加するパッケージと、
+# MFAを使わない補助スクリプト（src/convert/ の監査系）が必要とするものを固定する。
+
+# --- MFA環境に pip で追加するもの ---
+praat-parselmouth==0.4.7   # 音響測定（src/acoustics/）
+textgrid==1.6.1            # TextGrid読み書き（praatioと併用）
+
+# --- 以下は conda-forge 経由でMFAと同時に入る。参照用に版を明記（pipで入れ直さない）---
+# montreal-forced-aligner==3.4.1
+# kalpy==0.10.4
+# kaldi==5.5.1172
+# python==3.14.6
+# numpy==2.4.6
+# scipy==1.18.0
+# librosa==0.11.0
+# praatio==6.2.2
+# scikit-learn==1.9.0
+# sqlalchemy==2.0.51
+# postgresql==18.4
+# pynini==2.1.7
+# openfst==1.8.4

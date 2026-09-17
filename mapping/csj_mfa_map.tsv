@@ -1,0 +1,292 @@
+# CSJ分節音ラベル → japanese_mfa（IPA表記）の音素対応表。
+# 出典: 『日本語話し言葉コーパス』の分節音ラベリング Version 1.1（前川ほか 2011）表1・表2・表3。
+# MFA側は japanese_mfa v3.0.0 辞書の84音素（SHA-256: 4a0c6676...、docs/versions.md）。
+#
+# csj_label の表記規約: **XML Phone層の連なりを `+` でつなぐ。**
+#   本プロジェクトの入力はCSJ XML（decisions-log.md「入力形式をXML+再統合に決定」）であり、
+#   .seg の融合ラベル（`Q,t`・`N,m`・`s,U`）は Phone層では segment.pdf §7 手順2 により
+#   等分割されて別Phoneになる。したがって表記は `Q+SclS+t`・`N+m` の形を用いる。
+#
+# 判断の根拠は mapping/decisions.md の各項目（長音の分割方針 / 促音の閉鎖区間の帰属 /
+# 撥音の異音統合 / 無声化母音の脱落分類）を参照。
+#
+# ⚠ 一対多が多数ある。/u/ は後続環境で ɯ / ɨ に、ザ行は摩擦 z / 破擦 dz に分岐する。
+#    照合は正規化ラベル同士ではなく (csj_label, mfa_phone) の組で行うこと
+#    （src/evaluate/sequence_align.py の Compatibility）。
+csj_label	jsut_label	mfa_phone	category	notes
+# ============ 母音（短）============
+a	a	a	vowel_short
+i	i	i	vowel_short
+u	u	ɯ	vowel_short	既定
+u	u	ɨ	vowel_short	歯茎・口蓋（化）子音の後
+e	e	e	vowel_short
+o	o	o	vowel_short
+# ============ 母音（長）: Phone層で V|H に等分割される。統合して1区間化 ============
+a+H	a a	aː	vowel_long	内部境界はinternal_boundary_tに保持
+i+H	i i	iː	vowel_long	同上
+u+H	u u	ɯː	vowel_long	MFAのɯː/ɨːを統合（decisions.md 付随決定1）
+u+H	u u	ɨː	vowel_long	同上
+e+H	e e	eː	vowel_long	同上
+o+H	o o	oː	vowel_long	同上
+# ============ 無声化母音: CSJは5母音すべて、MFAは高母音3種のみ ============
+I	i	i̥	devoiced_high
+U	u	ɯ̥	devoiced_high
+U	u	ɨ̥	devoiced_high
+A	a	a	devoiced_nonhigh	MFAに無声化aは存在しない。規約差として吸収しsubstitutionに計上しない
+E	e	e	devoiced_nonhigh	同上
+O	o	o	devoiced_nonhigh	同上
+# ============ 子音（直音）============
+k	k	k	stop	カ行
+g	g	ɡ	stop	ガ行
+t	t	t	stop	タ・テ・ト
+d	d	d	stop	ダ・デ・ド
+b	b	b	stop	バ行
+p	p	p	stop	パ行
+c	ts	ts	affricate	ツの子音
+s	s	s	fricative	サ・ス・セ・ソ
+z	z	z	fricative	ザ行の摩擦実現
+z	z	dz	affricate	ザ行の破擦実現（語頭・撥音後など）
+h	h	h	fricative	ハ・ヘ・ホ
+F	f	ɸ	fricative	フの子音
+n	n	n	nasal	ナ行
+m	m	m	nasal	マ行
+r	r	ɾ	flap	ラ行
+y	y	j	approximant	ヤ行。CSJのyはIPA j
+w	w	w	approximant	ワ行
+v	v	v	fricative	ヴァ行（外来語）
+v	v	vʲ	fricative	ヴィ等。/i/の前で口蓋化
+# ============ 子音（/i/の前で音声的に口蓋化）============
+kj	k	c	stop	キ
+gj	g	ɟ	stop	ギ
+sj	sh	ɕ	fricative	シ
+zj	j	ʑ	fricative	ジの摩擦実現
+zj	j	dʑ	affricate	ジの破擦実現
+cj	ch	tɕ	affricate	チ
+nj	n	ɲ	nasal	ニ
+hj	h	ç	fricative	ヒ
+# ============ 子音（拗音）============
+ky	ky	c	stop	キャ行
+gy	gy	ɟ	stop	ギャ行
+sy	sh	ɕ	fricative	シャ行
+zy	j	ʑ	fricative	ジャ行の摩擦実現
+zy	j	dʑ	affricate	ジャ行の破擦実現
+cy	ch	tɕ	affricate	チャ行
+ty	t	tʲ	stop	テャ・ティ等
+dy	d	dʲ	stop	デャ・ディ等
+ny	ny	ɲ	nasal	ニャ行
+hy	hy	ç	fricative	ヒャ行
+Fy	f	ɸʲ	fricative	ファ行の拗音
+by	by	bʲ	stop	ビャ行
+py	py	pʲ	stop	ピャ行
+my	my	mʲ	nasal	ミャ行
+ry	ry	ɾʲ	flap	リャ行
+# ============ 合拗音: MFAは唇音化音素を持たないため子音+wの2音素に対応（1:2）============
+kw	k w	k w	labialized	クヮ。sequence_align の 1:N で対応
+gw	g w	ɡ w	labialized	グヮ。同上
+# ============ 撥音（曖昧性なく撥音である実現）============
+N	N	ɴ	moraic_nasal	語末・ポーズ前。後続環境を因子として保持
+N	N	m	moraic_nasal	両唇音の前。オンセットmと記号衝突→sequence_align.pyで判別
+N	N	n	moraic_nasal	歯茎音の前。同上
+N	N	ŋ	moraic_nasal	軟口蓋音の前
+N	N	ɲ	moraic_nasal	口蓋（化）音の前
+N	N	ɰ̃	moraic_nasal	母音・摩擦音・接近音の前。境界が原理的に不明瞭。誤差最大の予測
+# ============ 撥音＋後続鼻音の融合（Phone層で等分割）============
+N+m	N m	mː	moraic_nasal_fused	内部境界は実測/人工物が混在（decisions.md 問題1）
+N+n	N n	nː	moraic_nasal_fused	同上
+N+nj	N ny	ɲː	moraic_nasal_fused	同上
+N+ny	N ny	ɲː	moraic_nasal_fused	同上
+N+my	N my	mʲː	moraic_nasal_fused	同上
+# ============ 促音（破裂音）: Q|<cl>を統合。バースト(<cl>終端)はburst_tに保持し4類型から除外 ============
+Q+SclS+t	cl t	tː	geminate_stop
+Q+SclS+k	cl k	kː	geminate_stop
+Q+SclS+p	cl p	pː	geminate_stop
+Q+SclS+d	cl d	dː	geminate_stop
+Q+SclS+g	cl g	ɡː	geminate_stop
+Q+SclS+b	cl b	bː	geminate_stop
+Q+SclS+kj	cl ky	cː	geminate_stop	口蓋化k
+Q+SclS+ky	cl ky	cː	geminate_stop	拗音
+Q+SclS+ty	cl t	tʲː	geminate_stop
+Q+SclS+dy	cl d	dʲː	geminate_stop
+Q+SclS+py	cl py	pʲː	geminate_stop
+Q+SclS+by	cl by	bʲː	geminate_stop
+Q+SclS+gy	cl gy	ɟː	geminate_stop
+# ============ 促音（破擦音）: <cl>は摩擦の前半を構成する閉鎖区間の終端（§5.2）============
+Q+SclS+c	cl ts	tsː	geminate_affricate	ツ
+Q+SclS+cj	cl ch	tɕː	geminate_affricate	チ
+Q+SclS+cy	cl ch	tɕː	geminate_affricate	チャ行
+Q+SclS+z	cl z	dzː	geminate_affricate	ザ行の破擦実現
+Q+SclS+zj	cl j	dʑː	geminate_affricate	ジの破擦実現
+# ============ 促音（摩擦音）: .segでは<cl>なしの融合ラベル。Phone層で Q|s に等分割 ============
+Q+s	cl s	sː	geminate_fricative
+Q+sj	cl sh	ɕː	geminate_fricative
+Q+sy	cl sh	ɕː	geminate_fricative
+Q+h	cl h	hː	geminate_fricative
+Q+hj	cl hy	çː	geminate_fricative
+Q+F	cl f	ɸː	geminate_fricative
+Q+Fy	cl f	ɸʲː	geminate_fricative
+# ============ 促音（弾き音・接近音）・長撥音: いずれも稀（辞書実測で計58件）============
+Q+r	cl r	ɾː	geminate_flap	辞書実測35件
+Q+ry	cl ry	ɾʲː	geminate_flap	辞書実測13件
+Q+w	cl w	wː	geminate_approximant	辞書実測1件
+N+N	N N	ɴː	moraic_nasal	長撥音。辞書実測9件
+# ============ 除外対象 ============
+a.Q / o.Q	-	-	geminate_excluded	転記タグF/D末尾。先行母音と融合し母音境界が失われる→除外・件数記録
+# ⚠ 補助ラベルは **CSJ XML では山括弧を S…S に符号化している**（実データで確認、2026-07-20）。
+#    `<cl>` ではなく `SclS` が PhoneEntity の実際の値。PhoneClass はすべて `others`。
+#    実測頻度（先頭3講演）: SclS 5604 / SpzS 593 / SsvS 356 / S?S 91 / SuvS 60 /
+#                          SfvS 23 / SbS 23 / SNS 12 / SfrS 1
+SclS	cl	-	auxiliary_closure	閉鎖区間終端（バースト）。MFA側に対応物なし→4類型から除外、burst_tに保持。長さ0の場合はVOT実質ゼロ（§5.2）
+SpzS	pau	-	auxiliary_excluded	発話中のポーズ（200ms未満）
+SuvS	-	-	auxiliary_excluded	声帯振動終了後の共鳴継続
+SsvS	-	-	auxiliary_excluded	母音終了後の声帯振動継続
+SfrS	-	-	auxiliary_excluded	ボーカル・フライ
+SfvS	-	-	auxiliary_excluded	母音不確定音
+S?S	-	-	auxiliary_excluded	子音不確定音
+SNS	-	-	auxiliary_excluded	雑音
+SbS	-	-	auxiliary_excluded	呼吸音
+#hash	-	-	auxiliary_excluded	発話単位の先頭（CSJの実ラベルは "#"。TSVのコメント行と衝突するため別名で記載）
+# ============ 無声化融合モーラ: 子音+無声化母音を1単位に統合。内部境界は真値なし ============
+# 全31講演から実測列挙（89種/延べ9218件、2026-07-20）。構成要素は上の単独行から導出。
+# MFA側は複数音素に対応するため 1:N（sequence_align.py の multi_ok が処理）。
+s+U	s u	s ɯ̥	devoiced_fused	実測2559件。内部境界に真値なし(§5.1)
+sj+I	sh i	ɕ i̥	devoiced_fused	実測2533件。内部境界に真値なし(§5.1)
+k+U	k u	k ɯ̥	devoiced_fused	実測809件。内部境界に真値なし(§5.1)
+kj+I	k i	c i̥	devoiced_fused	実測536件。内部境界に真値なし(§5.1)
+c+U	ts u	ts ɯ̥	devoiced_fused	実測483件。内部境界に真値なし(§5.1)
+hj+I	h i	ç i̥	devoiced_fused	実測479件。内部境界に真値なし(§5.1)
+cj+I	ch i	tɕ i̥	devoiced_fused	実測369件。内部境界に真値なし(§5.1)
+F+U	f u	ɸ ɯ̥	devoiced_fused	実測190件。内部境界に真値なし(§5.1)
+t+O	t o	t o	devoiced_fused	実測166件。内部境界に真値なし(§5.1)
+t+A	t a	t a	devoiced_fused	実測151件。内部境界に真値なし(§5.1)
+m+A	m a	m a	devoiced_fused	実測112件。内部境界に真値なし(§5.1)
+d+E	d e	d e	devoiced_fused	実測101件。内部境界に真値なし(§5.1)
+k+A	k a	k a	devoiced_fused	実測78件。内部境界に真値なし(§5.1)
+k+O	k o	k o	devoiced_fused	実測77件。内部境界に真値なし(§5.1)
+zj+I	j i	ʑ i̥	devoiced_fused	実測71件。内部境界に真値なし(§5.1)
+s+O	s o	s o	devoiced_fused	実測70件。内部境界に真値なし(§5.1)
+t+E	t e	t e	devoiced_fused	実測48件。内部境界に真値なし(§5.1)
+p+U	p u	p ɯ̥	devoiced_fused	実測23件。内部境界に真値なし(§5.1)
+sy+U	sh u	ɕ ɯ̥	devoiced_fused	実測22件。内部境界に真値なし(§5.1)
+h+A	h a	h a	devoiced_fused	実測22件。内部境界に真値なし(§5.1)
+s+E	s e	s e	devoiced_fused	実測21件。内部境界に真値なし(§5.1)
+r+U	r u	ɾ ɯ̥	devoiced_fused	実測17件。内部境界に真値なし(§5.1)
+z+U	z u	z ɯ̥	devoiced_fused	実測16件。内部境界に真値なし(§5.1)
+n+A	n a	n a	devoiced_fused	実測14件。内部境界に真値なし(§5.1)
+h+O	h o	h o	devoiced_fused	実測13件。内部境界に真値なし(§5.1)
+s+A	s a	s a	devoiced_fused	実測11件。内部境界に真値なし(§5.1)
+k+E	k e	k e	devoiced_fused	実測8件。内部境界に真値なし(§5.1)
+w+A	w a	w a	devoiced_fused	実測8件。内部境界に真値なし(§5.1)
+p+I	p i	p i̥	devoiced_fused	実測7件。内部境界に真値なし(§5.1)
+r+E	r e	ɾ e	devoiced_fused	実測7件。内部境界に真値なし(§5.1)
+m+O	m o	m o	devoiced_fused	実測6件。内部境界に真値なし(§5.1)
+sy+O	sh o	ɕ o	devoiced_fused	実測5件。内部境界に真値なし(§5.1)
+d+A	d a	d a	devoiced_fused	実測5件。内部境界に真値なし(§5.1)
+cy+O	ch o	tɕ o	devoiced_fused	実測4件。内部境界に真値なし(§5.1)
+z+A	z a	z a	devoiced_fused	実測4件。内部境界に真値なし(§5.1)
+nj+I	n i	ɲ i̥	devoiced_fused	実測3件。内部境界に真値なし(§5.1)
+n+O	n o	n o	devoiced_fused	実測3件。内部境界に真値なし(§5.1)
+r+I	r i	ɾ i̥	devoiced_fused	実測3件。内部境界に真値なし(§5.1)
+gj+I	g i	ɟ i̥	devoiced_fused	実測2件。内部境界に真値なし(§5.1)
+p+A	p a	p a	devoiced_fused	実測2件。内部境界に真値なし(§5.1)
+b+U	b u	b ɯ̥	devoiced_fused	実測2件。内部境界に真値なし(§5.1)
+y+O	y o	j o	devoiced_fused	実測2件。内部境界に真値なし(§5.1)
+sy+A	sh a	ɕ a	devoiced_fused	実測2件。内部境界に真値なし(§5.1)
+b+E	b e	b e	devoiced_fused	実測2件。内部境界に真値なし(§5.1)
+n+E	n e	n e	devoiced_fused	実測2件。内部境界に真値なし(§5.1)
+g+O	g o	ɡ o	devoiced_fused	実測2件。内部境界に真値なし(§5.1)
+r+A	r a	ɾ a	devoiced_fused	実測2件。内部境界に真値なし(§5.1)
+b+I	b i	b i̥	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+g+U	g u	ɡ ɯ̥	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+F+I	f i	ɸ i̥	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+y+U	y u	j ɯ̥	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+g+A	g a	ɡ a	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+hy+O	hy o	ç o	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+cy+U	ch u	tɕ ɯ̥	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+t+I	t i	t i̥	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+z+E	z e	z e	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+ky+U	ky u	c ɯ̥	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+s+I	s i	s i̥	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+h+E	h e	h e	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+m+U	m u	m ɯ̥	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+r+O	r o	ɾ o	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+ky+O	ky o	c o	devoiced_fused	実測1件。内部境界に真値なし(§5.1)
+# ============ 実測で判明した残りのパターン（全31講演から列挙、2026-07-20）============
+Q	cl	-	geminate_no_closure	閉鎖ラベルを伴わない促音。実測少数。MFA側に単独の対応物なし
+oSfrS	o	o	vocalfry_fused	実測154件
+aSfrS	a	a	vocalfry_fused	実測128件
+eSfrS	e	e	vocalfry_fused	実測121件
+iSfrS	i	i	vocalfry_fused	実測61件
+Q+SclS+t+E	t e	t e	devoiced_fused_geminate	実測43件
+uSfrS	u	ɯ	vocalfry_fused	実測41件
+Q+SclS+cj+I	ch i	tɕ i̥	devoiced_fused_geminate	実測22件
+Q+SclS+k+U	k u	k ɯ̥	devoiced_fused_geminate	実測15件
+Q+SclS+t+O	t o	t o	devoiced_fused_geminate	実測12件
+Q+SclS+t+I	t i	t i̥	devoiced_fused_geminate	実測5件
+Q+SclS+t+A	t a	t a	devoiced_fused_geminate	実測4件
+Q+SclS+p+U	p u	p ɯ̥	devoiced_fused_geminate	実測3件
+Q+SclS+t+U	t u	t ɯ̥	devoiced_fused_geminate	実測3件
+Q+SclS+kj+I	k i	c i̥	devoiced_fused_geminate	実測2件
+Q+SclS+c+U	ts u	ts ɯ̥	devoiced_fused_geminate	実測1件
+Q+SclS+zy	j	ʑ	devoiced_fused_geminate	実測1件
+Q+SclS+ty+U	t u	tʲ ɯ̥	devoiced_fused_geminate	実測1件
+# ---- 無声化母音・その他に長音記号Hが後続する組み合わせ（実測列挙）----
+H	-	-	long_vowel_orphan	先行が母音でないH。統合できず単独で残ったもの。評価対象外
+sy+O+H	sh -	ɕ oː	devoiced_fused_long	実測3件
+s+U+H	s -	s ɯː	devoiced_fused_long	実測2件
+s+O+H	s -	s oː	devoiced_fused_long	実測2件
+sy+U+H	sh -	ɕ ɯː	devoiced_fused_long	実測1件
+I+H	-	iː	devoiced_fused_long	実測1件
+sj+I+H	sh -	ɕ iː	devoiced_fused_long	実測1件
+n+A+H	n -	n aː	devoiced_fused_long	実測1件
+A+H	-	aː	devoiced_fused_long	実測1件
+r+O+H	r -	ɾ oː	devoiced_fused_long	実測1件
+y+U+H	y -	j ɯː	devoiced_fused_long	実測1件
+k+A+H	k -	k aː	devoiced_fused_long	実測1件
+cy+U+H	ch -	tɕ ɯː	devoiced_fused_long	実測1件
+ky+O+H	ky -	c oː	devoiced_fused_long	実測1件
+E+H	-	eː	devoiced_fused_long	実測1件
+t+O+H	t -	t oː	devoiced_fused_long	実測1件
+n+O+H	n -	n oː	devoiced_fused_long	実測1件
+# ============ 183講演投入で追加判明したパターン（機械導出、2026-07-24）============
+t+U	t u	t ɯ̥	devoiced_fused	183講演で実測23件
+N+n+A	N n a	ɴ n a	moraic_nasal_fused	183講演で実測10件
+d+O	d o	d o	devoiced_fused	183講演で実測8件
+zy+U	j u	ʑ ɯ̥	devoiced_fused	183講演で実測8件
+Q+SclS+k+A	k a	k a	devoiced_fused_geminate	183講演で実測8件
+y+A	y a	j a	devoiced_fused	183講演で実測7件
+m+I	m i	m i̥	devoiced_fused	183講演で実測7件
+Q+SclS+k+E	k e	k e	devoiced_fused_geminate	183講演で実測6件
+ky+A	ky a	c a	devoiced_fused	183講演で実測5件
+hy+A	hy a	ç a	devoiced_fused	183講演で実測4件
+b+A	b a	b a	devoiced_fused	183講演で実測4件
+h+E+H	h -	h eː	devoiced_fused_long	183講演で実測3件
+Q+SclS+cy+A	ch a	tɕ a	devoiced_fused_geminate	183講演で実測3件
+h+A+H	h -	h aː	devoiced_fused_long	183講演で実測3件
+Q+SclS+d+U	d u	d ɯ̥	devoiced_fused_geminate	183講演で実測2件
+ty+U	t u	tʲ ɯ̥	devoiced_fused	183講演で実測2件
+zy+O+H	j -	ʑ oː	devoiced_fused_long	183講演で実測2件
+Q+SclS+gj	g	ɟ	geminate_other	183講演で実測2件
+Q+SclS+cy+U	ch u	tɕ ɯ̥	devoiced_fused_geminate	183講演で実測2件
+Q+SclS+k+O	k o	k o	devoiced_fused_geminate	183講演で実測2件
+g+E	g e	ɡ e	devoiced_fused	183講演で実測2件
+z+O	z o	z o	devoiced_fused	183講演で実測2件
+m+E	m e	m e	devoiced_fused	183講演で実測2件
+cy+A	ch a	tɕ a	devoiced_fused	183講演で実測2件
+zy+A	j a	ʑ a	devoiced_fused	183講演で実測1件
+N+n+O	N n o	ɴ n o	moraic_nasal_fused	183講演で実測1件
+r+E+H	r -	ɾ eː	devoiced_fused_long	183講演で実測1件
+zy+E	j e	ʑ e	devoiced_fused	183講演で実測1件
+N+m+A	N m a	ɴ m a	moraic_nasal_fused	183講演で実測1件
+b+A+H	b -	b aː	devoiced_fused_long	183講演で実測1件
+b+O+H	b -	b oː	devoiced_fused_long	183講演で実測1件
+d+U	d u	d ɯ̥	devoiced_fused	183講演で実測1件
+c+O	ts o	ts o	devoiced_fused	183講演で実測1件
+ky+A+H	ky -	c aː	devoiced_fused_long	183講演で実測1件
+c+U+H	ts -	ts ɯː	devoiced_fused_long	183講演で実測1件
+m+A+H	m -	m aː	devoiced_fused_long	183講演で実測1件
+hy+U	hy u	ç ɯ̥	devoiced_fused	183講演で実測1件
+Q+SclS+p+I	p i	p i̥	devoiced_fused_geminate	183講演で実測1件
+Q+SclS+ky+O	ky o	c o	devoiced_fused_geminate	183講演で実測1件
+Q+SclS+g+U	g u	ɡ ɯ̥	devoiced_fused_geminate	183講演で実測1件
+k+O+H	k -	k oː	devoiced_fused_long	183講演で実測1件
+y+A+H	y -	j aː	devoiced_fused_long	183講演で実測1件

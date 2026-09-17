@@ -1,0 +1,16 @@
+quantity	value
+dict_words	499568
+competing_words_any_type	13348
+competing_words_with_devoiced_symbol_variant	3245
+train_competing_tokens	46798
+train_word_types_with_competing_tokens	2496
+train_word_types_n_ge_5	994
+env_rate_voiceless_both	0.8995
+env_rate_other	0.2770
+env_n_voiceless_both	22866
+env_n_other	23932
+words_env_fallback	12365
+words_word_rate	983
+lines_changed	40071
+lines_had_prob	20547
+lines_not_in_competing_positions	0

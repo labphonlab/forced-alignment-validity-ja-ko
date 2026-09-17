@@ -1,0 +1,16 @@
+analysis	subset	quantity	estimate	ci2way_low	ci2way_high	cispk_low	cispk_high	n	note
+C5	case_control(200 draws)	balanced_accuracy_mean	0.69700			0.69369	0.69989	20796.00000	range over draws in ci columns;word_types=1089
+C5	case_control(200 draws)	mcc_mean	0.39445			0.38786	0.40016	20796.00000	
+C5	per_word_accuracy|n>=5	quantiles_10_25_50_75_90	0.87500					1157.00000	0.391;0.667;0.875;1.000;1.000
+C5	per_word_accuracy|n>=5	token_weighted_accuracy	0.79566					57188.00000	
+C5	per_word_accuracy|n>=5	token_weighted_majority_baseline	0.82411					57188.00000	
+C5	per_word_accuracy|n>=5	share_words_acc_below_majority	0.29991					1157.00000	
+C5	per_word_accuracy|n>=20	quantiles_10_25_50_75_90	0.89039					434.00000	0.500;0.741;0.890;0.980;1.000
+C5	per_word_accuracy|n>=20	token_weighted_accuracy	0.79942					50229.00000	
+C5	per_word_accuracy|n>=20	token_weighted_majority_baseline	0.82448					50229.00000	
+C5	per_word_accuracy|n>=20	share_words_acc_below_majority	0.32028					434.00000	
+C5	concentration	word_types_for_50pct_tokens	54.00000					60354.00000	of 2781 types
+C5	concentration	word_types_for_80pct_tokens	349.00000					60354.00000	of 2781 types
+C5	concentration	word_types_for_90pct_tokens	736.00000					60354.00000	of 2781 types
+C5	concentration	top10_types_token_share	0.29902					60354.00000	
+C5	concentration	types_with_1_token	750.00000					2781.00000	

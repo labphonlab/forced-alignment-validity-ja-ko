@@ -1,0 +1,3 @@
+quantity	estimate	ci95_lo	ci95_hi	ci90_lo	ci90_hi	welch_df	tost_equivalence_bound_pp	statement
+B2-A2 T (pp)	0.257666666666665	-6.27753877718522	6.79287211051855	-4.25872160840715	4.77405494174048	2.14261390807409	4.77405494174048	With 3 runs per condition, the data exclude (TOST, alpha=.05 each side) only effects larger than +/-4.77 pp on T; effects up to ~4.8 pp in either direction are compatible with the data.
+B2-A2 DiD T-C (pp)	-3.47566666666667	-7.71483357465994	0.763500241326605	-6.55991688500009	-0.391416448333251	2.7248652836254	6.55991688500009	For the DiD, effects beyond +/-6.56 pp are excluded at the same level.

@@ -1,0 +1,95 @@
+{
+ "seed": 20260916,
+ "half_A": [
+  "s01",
+  "s02",
+  "s04",
+  "s05",
+  "s10",
+  "s12",
+  "s13",
+  "s19",
+  "s20",
+  "s22",
+  "s23",
+  "s27",
+  "s28",
+  "s30",
+  "s31",
+  "s32",
+  "s37",
+  "s38",
+  "s39",
+  "s40"
+ ],
+ "half_B": [
+  "s03",
+  "s06",
+  "s07",
+  "s08",
+  "s09",
+  "s11",
+  "s14",
+  "s15",
+  "s16",
+  "s17",
+  "s18",
+  "s21",
+  "s24",
+  "s25",
+  "s26",
+  "s29",
+  "s33",
+  "s34",
+  "s35",
+  "s36"
+ ],
+ "p_pool_A": {
+  "aspiration": 0.9568273092369478,
+  "liaison": 0.9823621037199927,
+  "liquidization": 0.9636363636363636,
+  "nasalization_liquid": 0.8366013071895425,
+  "nasalization_obstruent": 0.9979879275653923,
+  "tensification": 0.9835585011470813
+ },
+ "n_pool_A": {
+  "aspiration": 2988,
+  "liaison": 21828,
+  "liquidization": 275,
+  "nasalization_liquid": 153,
+  "nasalization_obstruent": 2485,
+  "tensification": 7846
+ },
+ "p_pool_B": {
+  "aspiration": 0.9551648351648352,
+  "liaison": 0.9782775119617225,
+  "liquidization": 0.9530791788856305,
+  "nasalization_liquid": 0.8970588235294118,
+  "nasalization_obstruent": 0.9957594448727833,
+  "tensification": 0.9831628027457583
+ },
+ "n_pool_B": {
+  "aspiration": 2275,
+  "liaison": 20900,
+  "liquidization": 341,
+  "nasalization_liquid": 136,
+  "nasalization_obstruent": 2594,
+  "tensification": 7721
+ },
+ "p_sample_A": {
+  "aspiration": 0.9426573426573427,
+  "liaison": 0.9845094664371773,
+  "liquidization": 0.9634703196347032,
+  "nasalization_liquid": 0.8539325842696629,
+  "nasalization_obstruent": 1.0,
+  "tensification": 0.9807162534435262
+ },
+ "p_sample_B": {
+  "aspiration": 0.9298245614035088,
+  "liaison": 0.9891696750902527,
+  "liquidization": 0.9507575757575758,
+  "nasalization_liquid": 0.8958333333333334,
+  "nasalization_obstruent": 0.9953846153846154,
+  "tensification": 0.9884393063583815
+ }
+}

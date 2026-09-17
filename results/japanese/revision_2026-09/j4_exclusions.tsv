@@ -1,0 +1,25 @@
+step	n
+vowel_reference_units_177_talks	668763
+  of_which_evaluable_boundaries	668763
+  of_which_not_evaluable	0
+  of_which_accent_type_blank	0
+  of_which_devoiced_flag_1	0
+  of_which_word_blank	0
+alignment_vowel_rows	676735
+excluded_omission	48150
+excluded_ref_unit_missing	0
+excluded_no_accent_type	0
+excluded_devoiced	0
+excluded_no_mfa_unit	0
+included	620613
+included_displacement	607011
+included_substitution	13602
+included_vowel_short	549655
+included_vowel_long	70958
+included_nucleus_1	103004
+included_nucleus_0	517609
+rq3_vowel_table_rows	620613
+row_mismatches_vs_rq3_vowel_table	0
+distinct_word_forms_included	45535
+included_word_blank	0
+excluded_insertion	7972

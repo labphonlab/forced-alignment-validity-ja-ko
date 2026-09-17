@@ -1,0 +1,17 @@
+analysis	subset	quantity	estimate	ci2way_low	ci2way_high	cispk_low	cispk_high	n	note
+P2	symbol	median_err_diff_wrong_minus_correct_ms	-1.60600	-4.34403	2.30396	-2.93910	0.14204	2005.00000	n_correct=1177;n_wrong=828;speakers=137;word_types=347;median_err_correct=9.37;median_err_wrong=7.78
+P2	symbol	auc_err_predicts_wrong	0.47972	0.36645	0.59922	0.42588	0.54010	2005.00000	n_correct=1177;n_wrong=828;speakers=137;word_types=347;median_err_correct=9.37;median_err_wrong=7.78
+P2	symbol	loso_auc_word_only_mean_within_speaker	0.80544			0.76850	0.83977	2005.00000	speakers_with_both_classes=129 of 137;target_encoding_m=5
+P2	symbol	loso_auc_word_plus_err_mean_within_speaker	0.79714					2005.00000	speakers_with_both_classes=129 of 137;target_encoding_m=5
+P2	symbol	loso_auc_increment	-0.00830			-0.02132	0.00423	2005.00000	speakers_with_both_classes=129 of 137;target_encoding_m=5;verdict=not_a_proxy(<0.02)
+P2	symbol	loso_pooled_oof_auc_word_only	0.83326					2005.00000	
+P2	symbol	loso_pooled_oof_auc_word_plus_err	0.83675					2005.00000	
+P2	symbol	accuracy	0.58703					2005.00000	
+P2	supp_symbol_or_mixed_vowel_present	median_err_diff_wrong_minus_correct_ms	20.14000	5.09245	24.05120	18.29346	21.90307	20524.00000	n_correct=11530;n_wrong=8994;speakers=137;word_types=1131;median_err_correct=7.24;median_err_wrong=27.38
+P2	supp_symbol_or_mixed_vowel_present	auc_err_predicts_wrong	0.78626	0.65973	0.86384	0.76487	0.80592	20524.00000	n_correct=11530;n_wrong=8994;speakers=137;word_types=1131;median_err_correct=7.24;median_err_wrong=27.38
+P2	supp_symbol_or_mixed_vowel_present	loso_auc_word_only_mean_within_speaker	0.79721			0.78388	0.80959	20524.00000	speakers_with_both_classes=137 of 137;target_encoding_m=5
+P2	supp_symbol_or_mixed_vowel_present	loso_auc_word_plus_err_mean_within_speaker	0.86521					20524.00000	speakers_with_both_classes=137 of 137;target_encoding_m=5
+P2	supp_symbol_or_mixed_vowel_present	loso_auc_increment	0.06800			0.05846	0.07722	20524.00000	speakers_with_both_classes=137 of 137;target_encoding_m=5;verdict=increment>=0.02
+P2	supp_symbol_or_mixed_vowel_present	loso_pooled_oof_auc_word_only	0.78941					20524.00000	
+P2	supp_symbol_or_mixed_vowel_present	loso_pooled_oof_auc_word_plus_err	0.87311					20524.00000	
+P2	supp_symbol_or_mixed_vowel_present	accuracy	0.56178					20524.00000	

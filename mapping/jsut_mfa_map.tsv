@@ -1,0 +1,100 @@
+# jsut-label（ローマ字表記）→ japanese_mfa（IPA表記）の音素対応表。
+# 注意: jsut-labelの時間情報はJuliusによる自動アラインメントであり、境界精度の参照には用いない。
+# 本表は公開実行例の整合性確保とRQ4のアライナ間一致度事例にのみ使用する（docs/decisions-log.md A節 2026-07-20）。
+#
+# 単独音素も恒等写像ではない（jsut sh → MFA ɕ 等）。全音素を明示的に列挙すること。
+# 重子音・撥音の組み合わせは jsut-label basic5000 全5000ファイルから実測列挙した（2026-07-20）。
+jsut_label	mfa_phone	category	notes
+# --- 母音（短）---
+a	a	vowel_short
+i	i	vowel_short
+u	ɯ	vowel_short	既定。歯茎・口蓋（化）子音の後では ɨ
+u	ɨ	vowel_short	歯茎・口蓋（化）子音の後
+e	e	vowel_short
+o	o	vowel_short
+# --- 母音（長）: 2分節を1区間に統合 ---
+a a	aː	vowel_long	2分節を1区間に統合。誤差算出には用いない（公開実行例の整合性のみ）
+i i	iː	vowel_long	同上
+u u	ɯː	vowel_long	MFA側ɯː/ɨːをマージ。同上
+u u	ɨː	vowel_long	同上
+e e	eː	vowel_long	同上
+o o	oː	vowel_long	同上
+# --- 子音（単独）---
+k	k	consonant
+ky	c	consonant	口蓋化k（キ・キャ行）。MFAは c
+g	ɡ	consonant
+gy	ɟ	consonant	口蓋化g（ギ・ギャ行）
+s	s	consonant
+sh	ɕ	consonant	シ・シャ行
+z	z	consonant	摩擦実現
+z	dz	consonant	破擦実現（語頭・撥音後など）
+j	dʑ	consonant	ジ・ジャ行
+t	t	consonant
+ts	ts	consonant	ツ
+ch	tɕ	consonant	チ・チャ行
+d	d	consonant
+n	n	consonant
+ny	ɲ	consonant	ニ・ニャ行
+h	h	consonant
+hy	ç	consonant	ヒ・ヒャ行
+f	ɸ	consonant	フ
+b	b	consonant
+p	p	consonant
+m	m	consonant
+my	mʲ	consonant	ミ・ミャ行
+by	bʲ	consonant	ビ・ビャ行
+py	pʲ	consonant	ピ・ピャ行
+dy	dʲ	consonant	デャ・ディ等
+v	v	consonant	ヴァ行（外来語）
+r	ɾ	consonant
+ry	ɾʲ	consonant	リ・リャ行
+w	w	consonant
+y	j	consonant	ヤ行。jsutの y は IPA j（jsutの j はジ=dʑ）
+# --- /i/ の前の口蓋化異音（jsut-labelは素の子音で書く。実測で判明・2026-07-20）---
+k	c	consonant	「き」。jsutは k i、MFAは c i
+g	ɟ	consonant	「ぎ」
+t	tʲ	consonant	「てぃ」（外来語）
+d	dʲ	consonant	「でぃ」（外来語）
+n	ɲ	consonant	「に」
+h	ç	consonant	「ひ」
+b	bʲ	consonant	「び」
+p	pʲ	consonant	「ぴ」
+m	mʲ	consonant	「み」
+r	ɾʲ	consonant	「り」
+f	ɸʲ	consonant	「ふぃ」（外来語）
+v	vʲ	consonant	「ゔぃ」（外来語）
+j	ʑ	consonant	「じ」の摩擦実現（破擦実現 dʑ は別行）
+# --- 無声化高母音（jsut-labelは無声化を非アノテーションのため、有声形と同一ラベル）---
+i	i̥	vowel_short	MFAが無声化形を出す場合
+u	ɯ̥	vowel_short	同上
+u	ɨ̥	vowel_short	同上
+# --- 促音: cl + 後続子音 を1区間に統合。実測頻度を notes に付記 ---
+cl t	tː	geminate_stop	実測2237件
+cl k	kː	geminate_stop	実測463件
+cl p	pː	geminate_stop	実測244件
+cl d	dː	geminate_stop	実測13件
+cl g	ɡː	geminate_stop	実測3件
+cl ky	cː	geminate_stop	実測45件。口蓋化k
+cl py	pʲː	geminate_stop	実測10件
+cl sh	ɕː	geminate_fricative	実測161件
+cl s	sː	geminate_fricative	実測158件
+cl f	ɸː	geminate_fricative	実測3件
+cl h	hː	geminate_fricative	実測1件
+cl ch	tɕː	geminate_affricate	実測47件
+cl ts	tsː	geminate_affricate	実測21件
+cl z	dzː	geminate_affricate	実測1件
+# --- 撥音: 異音を区別しないjsutのNに、MFAの6異音すべてを写像 ---
+N	ɴ	moraic_nasal	語末・ポーズ前
+N	m	moraic_nasal	両唇音の前
+N	n	moraic_nasal	歯茎音の前
+N	ŋ	moraic_nasal	軟口蓋音の前
+N	ɲ	moraic_nasal	口蓋（化）音の前
+N	ɰ̃	moraic_nasal	母音・摩擦音・接近音の前
+# --- 撥音+鼻音の融合: MFAは後続鼻音と融合して重鼻音になる ---
+N n	nː	moraic_nasal_fused	実測1272件
+N m	mː	moraic_nasal_fused	実測208件
+N ny	ɲː	moraic_nasal_fused	実測11件
+N my	mʲː	moraic_nasal_fused	実測2件
+# --- 無音 ---
+pau	-	pause	MFA側は無音。評価対象外
+sil	-	silence	同上

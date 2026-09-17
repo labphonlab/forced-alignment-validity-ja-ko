@@ -1,0 +1,8 @@
+process,contrast,detection_rate,n
+syllable deletion,one syllable absent in pronunciation-faithful form,0.876,396
+onset deletion,one syllable onset absent,0.821,106
+coda insertion,one coda present only in pronunciation-faithful form,0.760,263
+coda deletion,one coda absent,0.664,393
+vowel change (non-raising),vowel-quality substitution other than raising,0.542,389
+vowel raising,raised-vowel substitution,0.540,383
+tensification,lenis-fortis onset contrast,0.513,337

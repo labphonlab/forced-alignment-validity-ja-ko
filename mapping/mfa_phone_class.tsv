@@ -1,0 +1,120 @@
+# japanese_mfa 音素 → RQ1音素クラスの内部分類表（2026-07-20 新設）
+#
+# 本表は「コーパス間の対応表」ではなく、**MFA音素そのものの内部分類表**である。
+# csj_mfa_map.tsv / jsut_mfa_map.tsv が「CSJ/jsutのラベル ↔ MFA音素」の対応を担うのに対し、
+# 本表は「MFA音素 → RQ1の音素クラス」の割り当てのみを担う。新設理由は mapping/decisions.md 参照。
+#
+# 対象は japanese_mfa v3.0.0 辞書の全84音素（SHA-256: 4a0c6676...、docs/versions.md）。
+# 括弧内は辞書中の出現頻度（2026-07-20 実測）。
+#
+# 分類方針（mapping/decisions.md の確定事項に従う）:
+#   - 長母音と短母音は別クラス
+#   - 促音は破裂音促音 / 摩擦音促音 / 破擦音促音で別クラス
+#   - 撥音の異音は moraic_nasal に統合。後続環境の層別は変換器側のロジックに委ねる
+#   - 無声化高母音は devoiced_high として独立クラス
+#   - ʔ・spn は non_phonemic として分離し、RQ1の誤差解剖対象から除外する
+#
+# ⚠ 記号衝突の注意: m / n / ɲ / mʲ は撥音の異音としても実現されるが、オンセット子音と
+#   記号が同一で静的に判別できない。本表では nasal に分類し、撥音かどうかの判定は
+#   src/evaluate/sequence_align.py がMFA単語層から辞書エントリを辿って行う。
+#   mapping/decisions.md「撥音の異音統合」問題2を参照。
+mfa_phone	category	notes
+# --- 母音（短）---
+a	vowel_short	608382
+i	vowel_short	477962
+ɯ	vowel_short	278486
+e	vowel_short	248783
+o	vowel_short	305166
+ɨ	vowel_short	145874 歯茎・口蓋（化）子音の後の/u/
+# --- 母音（長）---
+aː	vowel_long	19644
+iː	vowel_long	21677
+ɯː	vowel_long	5603
+eː	vowel_long	57745
+oː	vowel_long	155527
+ɨː	vowel_long	35415
+# --- 無声化高母音（MFAは高母音3種のみ。CSJは5母音すべてを無声化として記録する）---
+i̥	devoiced_high	1339
+ɨ̥	devoiced_high	1306
+ɯ̥	devoiced_high	1202
+# --- 撥音（曖昧性なく撥音である実現のみ）---
+ɴ	moraic_nasal	57109 語末・ポーズ前
+ɴː	moraic_nasal	9
+ŋ	moraic_nasal	27375 軟口蓋音の前
+ɰ̃	moraic_nasal	36021 母音・摩擦音・接近音の前。境界が原理的に不明瞭
+# --- 撥音＋後続鼻音の融合（MFAは1音素に融合する）---
+mː	moraic_nasal_fused	3663
+nː	moraic_nasal_fused	4069
+ɲː	moraic_nasal_fused	1265
+mʲː	moraic_nasal_fused	766
+# --- 鼻音（オンセット）※撥音の異音でもある。sequence_align.py で判別 ---
+m	nasal	124860
+n	nasal	117162
+ɲ	nasal	46135
+mʲ	nasal	34298
+# --- 破裂音 ---
+k	stop	298912
+ɡ	stop	86854
+t	stop	151000
+d	stop	68756
+p	stop	21264
+b	stop	73997
+c	stop	83466 口蓋化k（キ・キャ行）
+ɟ	stop	18348 口蓋化g（ギ・ギャ行）
+tʲ	stop	3860
+dʲ	stop	3718
+pʲ	stop	4147
+bʲ	stop	15626
+# --- 破裂音促音 ---
+tː	geminate_stop	16804
+kː	geminate_stop	12249
+pː	geminate_stop	5578
+dː	geminate_stop	984
+ɡː	geminate_stop	479
+bː	geminate_stop	44
+cː	geminate_stop	2914
+tʲː	geminate_stop	160
+dʲː	geminate_stop	3
+pʲː	geminate_stop	532
+bʲː	geminate_stop	4
+ɟː	geminate_stop	10
+# --- 摩擦音 ---
+s	fricative	178176
+ɕ	fricative	125824
+z	fricative	37143
+ʑ	fricative	34152
+h	fricative	55324
+ç	fricative	23438
+ɸ	fricative	26339
+ɸʲ	fricative	1793
+v	fricative	675 外来語
+vʲ	fricative	281 外来語
+# --- 摩擦音促音 ---
+sː	geminate_fricative	2887
+ɕː	geminate_fricative	3790
+ɸː	geminate_fricative	152
+hː	geminate_fricative	59
+çː	geminate_fricative	8
+ɸʲː	geminate_fricative	8
+# --- 破擦音 ---
+ts	affricate	55278
+tɕ	affricate	47558
+dz	affricate	10688
+dʑ	affricate	22009
+# --- 破擦音促音 ---
+tsː	geminate_affricate	507
+tɕː	geminate_affricate	2785
+dzː	geminate_affricate	63
+dʑː	geminate_affricate	266
+# --- 弾き音 ---
+ɾ	flap	189366
+ɾʲ	flap	65243
+ɾː	geminate_flap	35 ⚠計画書のRQ1クラス設計に無い。要確認
+ɾʲː	geminate_flap	13 ⚠同上
+# --- 接近音 ---
+j	approximant	53421 ⚠計画書のRQ1クラス設計に無い。要確認
+w	approximant	29804 ⚠同上
+wː	geminate_approximant	1 ⚠同上
+# --- 非音素的 ---
+ʔ	non_phonemic	207 語末促音の可聴解放。RQ1の誤差解剖から除外
+spn	non_phonemic	2 spoken noise。同上

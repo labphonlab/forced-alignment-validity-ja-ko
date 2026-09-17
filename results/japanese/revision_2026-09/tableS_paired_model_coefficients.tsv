@@ -1,0 +1,11 @@
+term	term_label	Estimate	SE	CI95_lo	CI95_hi	t
+(Intercept)	Intercept (hand, short vowel, APS, non-nucleus, no following /N/)	4.14847	0.10571	3.94128	4.35567	39.24
+sourcemfa	Boundary source: MFA	-0.06039	6e-04	-0.06157	-0.05921	-100.13
+is_nuc	Accent nucleus	-0.0374	0.00173	-0.0408	-0.034	-21.56
+nasal_following	Following moraic nasal	0.15645	0.00282	0.15092	0.16199	55.39
+stylesps	Style: SPS	-0.00965	0.00457	-0.0186	-7e-04	-2.11
+length_classvowel_long	Length: long vowel	0.68827	0.14883	0.39657	0.97998	4.62
+sourcemfa:is_nuc	MFA x accent nucleus	-0.03825	0.00105	-0.0403	-0.0362	-36.56
+sourcemfa:nasal_following	MFA x following moraic nasal	-0.15363	0.00171	-0.15699	-0.15027	-89.62
+sourcemfa:stylesps	MFA x SPS	-0.01754	0.00078	-0.01905	-0.01602	-22.62
+sourcemfa:length_classvowel_long	MFA x long vowel	-0.02785	0.00123	-0.03025	-0.02545	-22.72

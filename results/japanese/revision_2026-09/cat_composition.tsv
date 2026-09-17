@@ -1,0 +1,15 @@
+analysis	subset	quantity	estimate	ci2way_low	ci2way_high	cispk_low	cispk_high	n	note
+composition	competing|mixed	n_ref_devoiced	22750.00000						
+composition	competing|mixed	n_ref_voiced	12040.00000						
+composition	competing|presence	n_ref_devoiced	11808.00000						
+composition	competing|presence	n_ref_voiced	11751.00000						
+composition	competing|symbol	n_ref_devoiced	733.00000						
+composition	competing|symbol	n_ref_voiced	1272.00000						
+composition	lexical|-	n_ref_devoiced	13942.00000						
+composition	lexical|-	n_ref_voiced	136142.00000						
+composition	competing|env=other	n	30657.00000						
+composition	competing|env=voiceless_both	n	29697.00000						
+composition	lexical|env=other	n	140341.00000						
+composition	lexical|env=voiceless_both	n	9743.00000						
+composition	competing	n_speakers	137.00000						
+composition	competing	n_word_types	2781.00000						

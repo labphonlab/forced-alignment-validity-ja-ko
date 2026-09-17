@@ -1,0 +1,21 @@
+{
+  "title": "Forced-alignment validity in Japanese and Korean spontaneous speech: code and aggregate results",
+  "description": "Code, configurations, phone-correspondence tables, audit scripts, figures, and aggregate results supporting a two-axis validation of forced alignment in Japanese and Korean spontaneous speech. Restricted corpus audio, annotations, word forms, speaker identifiers, token-level derivatives, and listening-task data are not included.",
+  "creators": [
+    {
+      "name": "Ishihara, Takeshi",
+      "affiliation": "Mejiro University"
+    }
+  ],
+  "keywords": [
+    "forced alignment",
+    "Montreal Forced Aligner",
+    "Japanese phonetics",
+    "Korean phonology",
+    "corpus phonetics",
+    "pronunciation variants"
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open"
+}

@@ -1,0 +1,46 @@
+# 条件A2：LDA+MLLT の段階を外した構成（MFCC＋Δ のみ、pitch・voicing なし）。
+# 学習段階は MFA 3.4.1 の既定（trainer.py default_training_configurations）から
+# lda の1段だけを抜き、他の段・パラメータはそのまま。
+# SAT は lda.mat が無ければ splice も LDA も掛けずに動く（acoustic_modeling/sat.py 99-101 行）。
+# 条件B2との違いは use_pitch / use_voicing の2行だけにすること（docs/decisions-log.md D14）。
+features:
+  type: mfcc
+  use_energy: false
+  frame_shift: 10
+  frame_length: 25
+  dither: 1
+  use_pitch: false
+  use_voicing: false
+training:
+  - monophone:
+      subset: 10000
+      boost_silence: 1.25
+  - triphone:
+      subset: 20000
+      boost_silence: 1.25
+      num_leaves: 2000
+      max_gaussians: 10000
+  - sat:
+      subset: 20000
+      num_leaves: 2500
+      max_gaussians: 15000
+  - sat:
+      subset: 50000
+      num_leaves: 4200
+      max_gaussians: 40000
+  - pronunciation_probabilities:
+      subset: 50000
+  - sat:
+      subset: 150000
+      num_leaves: 5000
+      max_gaussians: 100000
+  - pronunciation_probabilities:
+      subset: 150000
+      optional: true
+  - sat:
+      subset: 0
+      num_leaves: 7000
+      optional: true
+      max_gaussians: 150000
+      num_iterations: 20
+      quick: true

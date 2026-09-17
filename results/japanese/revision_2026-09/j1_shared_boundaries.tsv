@@ -1,0 +1,3 @@
+scope	onset_rows	has_preceding_segment_in_ipu	preceding_segment_matched	ref_onset_equals_prev_ref_offset	pct_shared_ref_of_onset_rows	also_mfa_boundary_shared	pct_identical_error_counted_twice_of_onset_rows
+all_classes	1236490	1185938	1167342	1117436	90.372	1087551	87.955
+table1_classes	1233778	1183314	1165706	1116082	90.461	1086694	88.079

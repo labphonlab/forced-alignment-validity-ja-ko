@@ -1,0 +1,5 @@
+subset	measure	n	n_correct	n_wrong	speakers	word_types	auc	spk_lo	spk_hi	spk_valid	twoway_lo	twoway_hi	twoway_valid
+identity_safe	dev_site_ms	2564	1287	1277	40	1259	0.5322	0.5071	0.5575	2000	0.4847	0.5802	2000
+identity_safe	dev_word_ms	2636	1329	1307	40	1278	0.5018	0.4816	0.5231	2000	0.4603	0.5464	2000
+full	dev_site_ms	5414	3117	2297	40	2404	0.496	0.4815	0.5115	2000	0.4615	0.5307	2000
+full	dev_word_ms	5538	3171	2367	40	2440	0.4983	0.484	0.5146	2000	0.4674	0.5287	2000
